@@ -1,18 +1,24 @@
 <%= render 'errors' %>
 
 <%= form_with(model: @article, local: true) do |f| %>
-  <p>
-    <%= f.label :title %><br/>
-    <%= f.text_field :title %>
-  </p>
+  <div class="form-group row">
+    <%= f.label :title, class: "col-2 col-form-label" %>
+    <div class="col-10">
+      <%= f.text_field :title, class: "form-control" %>
+    </div>
+  </div>
 
-  <p>
-    <%= f.label :description %><br/>
-    <%= f.text_area :description %>
-  </p>
+  <div class="form-group row">
+    <%= f.label :description, class: "col-2 col-form-label" %>
+    <div class="col-10">
+      <%= f.text_area :description, rows: 14, class: "form-control" %>
+    </div>
+  </div>
 
-  <p>
-    <%= f.submit %>
-  </p>
-
+  <div class="form-group row">
+    <%= f.submit class: "btn btn-outline-dark" %>
+  </div>
+  
 <% end %>
+
+<%= link_to 'Cancel', articles_path, data: { confirm: "Are you sure you wish to Cancel and return to Articles?"} %>
