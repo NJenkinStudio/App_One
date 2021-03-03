@@ -8,6 +8,10 @@
     <p>Write your own story:</p>
     <%= link_to "Sign up", signup_path, class: "btn btn-light text-secondary" %>
     Or
+    <% if logged_in? %>
+    <%= link_to "Logout", logout_path, class: "btn btn-light text-secondary" %>
+    <% else %>
     <%= link_to "Login", login_path, class: "btn btn-light text-secondary" %>
+    <% end %>
   </div>
 </div>

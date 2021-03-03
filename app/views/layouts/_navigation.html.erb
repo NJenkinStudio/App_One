@@ -9,17 +9,24 @@
       <li class="nav-item active">
         <%= link_to "Articles", articles_path, class: "nav-link" %>
       </li>
-            <li class="nav-item dropdown">
+
+      <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Oners
+          Oner Options
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <%= link_to "Authors", users_path, class: "dropdown-item" %>
           <div class="dropdown-divider"></div>
-          <%= link_to "Login", login_path, class: "dropdown-item" %>
-          <%= link_to "Logout", logout_path, class: "dropdown-item", method: :delete %>
+          <% if logged_in? %>
+            <%= link_to current_user.username, user_path(current_user), class: "dropdown-item" %>
+            <%= link_to "Logout", logout_path, class: "dropdown-item", method: :delete %>
+          <% else %>
+            <%= link_to "Login", login_path, class: "dropdown-item" %>
+          <% end %>
+          <%= link_to "Signup", signup_path, class: "dropdown-item" %>
         </div>
       </li>
+
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Create
