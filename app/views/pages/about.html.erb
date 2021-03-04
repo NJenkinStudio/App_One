@@ -1,6 +1,17 @@
-<h1>This is my About page, its nice isn't it?</h1>
-<h2>This is about how tall I am, but its also about 500px wide and if you really want to know
-its about something much deeper</h2>
-
-<%= link_to 'Articles Listing', articles_path %> |
-<%= link_to 'Home Page', root_path %>
+<div class="container" id="home-container">
+  <div class="jumbotron text-center text-white">
+    <h1 class="display-4">About This Page</h1>
+    <p class="lead">This is the first webite/application that I have ever made. If you liked it you are welcome
+                    to checkout the repository for it which will be linked below. You will have to make an account
+                    to gain access though.</p>
+    <hr class="my-4">
+    <p>Join the movement:</p>
+    <% if logged_in? %>
+    <%= link_to "Repository", "https://github.com/NJenkinStudio/App_One//", class: "btn btn-light text-secondary" %>
+    <% else %>
+    <%= link_to "Sign up", signup_path, class: "btn btn-light text-secondary" %>
+    Or
+    <%= link_to "login", login_path, class: "btn btn-light text-secondary" %>
+    <% end %>
+  </div>
+</div>
